@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, rgb(0, 130, 117) 15%, rgba(218,219,211,1) 15%);
+    height: 100vh;
+    padding-top: 2rem;
+}
+
+#app {
+    background-color: white;
+    height: 90vh;
+    max-width: 1094px;
+    margin: 0 auto;
+}
+
+#chatContainer {
+    height: 100%;
+    width: 35%;
+}
+
+#convContainer {
+    height: 100%;
+    width: 65%;
+    background-image: url(../img/mine.jpg);
+}
+
+
+/* left */
+#user {
+    background-color: lightgray;
+    padding: 0.3rem;
+}
+
+#user img {
+    width: 2.5rem;
+    border-radius: 50%;
+}
+
+li { list-style-type: none; }
+
+li img {
+    width: 3rem;
+    border-radius: 50%;
+}
+
+
+/* right */
+#contactInfo { background-color: lightgray; }
+
+
+
+/* utilities */
+.d-flex { display: flex; }
+.flex-column { flex-direction: column; }
+.justify-between {justify-content:space-between}
+.justify-center {justify-content: center}
+.align-center {align-items:center}
