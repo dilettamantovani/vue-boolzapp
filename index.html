@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="https://unpkg.com/vue@3.3.8/dist/vue.global.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"></script>
+        <title>Boolzapp</title>
+    </head>
+
+
+    <!-- NO BOOTSTRAP VERSION -->
+    <body>
+        <div id="app">
+            <!-- left -->
+            <div id="chatContainer">
+                <div id="user">
+
+                    <img src="" alt="">
+                    <h4>Diletta</h4>
+
+                    <div id="userBtns">
+                        <!-- still need style -->
+                        <a href="#"><i class="fa-solid fa-circle-notch"></i></a>
+                        <a href="#"><i class="fa-solid fa-message"></i></a>
+                        <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                    </div>
+
+                </div>
+
+                <!-- notifications banner -->
+                <div> <!-- needs background -->
+                    <i class="fa-solid fa-bell-slash"></i>   <!-- needs style -->
+                    <div>
+                        <span>Ricevi notifiche di nuovi messaggi</span>
+                        <a href="#">Attiva notifiche desktop</a>
+                    </div>
+                </div>
+
+                <!-- search bar -->
+                <div id="searchContainer">
+                    <div>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="search" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+
+                <!-- chat list -->
+                <div>
+                    <ul>
+                        <!-- contact generator -->
+                        <li v-for="contact in contacts">
+                            <img v-bind:src="contact.avatar" :alt="contact.name">
+                            <h4>{{contact.name}}</h4>
+
+                            <!-- last message -->
+                            <!-- <span>Ultimo messaggio</span> -->
+
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <!-- right -->
+            <div id="convContainer">
+                <div id="contactInfo">
+                    {{contact[0].avatar}}
+                    {{contact[0].name}}
+                    <!-- ultimo accesso -->
+                </div>
+
+                <div id="convo">
+                    <!-- w/ flex: sent = justify-end, green; received = grey. w/ Bootstrap: offset?  -->
+                </div>
+
+                <div id="messageBox">
+                    <span><i class="fa-regular fa-face-smile"></i></span>
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    <button id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button> <!-- @click send message -->
+                    <span><i class="fa-solid fa-microphone"></i></span> <!-- @click voice message?? -->
+                </div>
+            </div>
+
+        </div>
+        
+        <script src="js/main.js"></script>
+    </body>
+</html>
