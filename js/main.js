@@ -180,8 +180,8 @@ createApp ({
 
     },
   
-    //non fa!
-    
+    //lavora non così ma col contact.messages[index].message, così ripesca l'ultimo messaggio quando ripesca il nome
+
     // methods: {
     //     getLastMessage() {
     //         for(i = 0; i < this.contacts.length; i++) {
