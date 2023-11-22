@@ -6,7 +6,7 @@ createApp ({
             contacts: [
                 {
                     name: 'Michele',
-                    avatar: './img/avatar_1.png',
+                    avatar: './img/avatar_1.jpg',
                     visible: true,
                     messages: [
                         {
@@ -29,7 +29,7 @@ createApp ({
 
                 {
                     name: 'Fabio',
-                    avatar: './img/avatar_2.png',
+                    avatar: './img/avatar_2.jpg',
                     visible: true,
                     messages: [
                         {
@@ -52,7 +52,7 @@ createApp ({
 
                 {
                     name: 'Samuele',
-                    avatar: './img/avatar_3.png',
+                    avatar: './img/avatar_3.jpg',
                     visible: true,
                     messages: [
                         {
@@ -75,7 +75,7 @@ createApp ({
 
                 {
                     name: 'Alessandro B.',
-                    avatar: './img/avatar_4.png',
+                    avatar: './img/avatar_4.jpg',
                     visible: true,
                     messages: [
                         {
@@ -93,7 +93,7 @@ createApp ({
 
                 {
                     name: 'Alessandro L.',
-                    avatar: './img/avatar_5.png',
+                    avatar: './img/avatar_5.jpg',
                     visible: true,
                     messages: [
                         {
@@ -111,7 +111,7 @@ createApp ({
 
                 {
                     name: 'Claudia',
-                    avatar: './img/avatar_6.png',
+                    avatar: './img/avatar_6.jpg',
                     visible: true,
                     messages: [
                         {
@@ -134,7 +134,7 @@ createApp ({
 
                 {
                     name: 'Federico',
-                    avatar: './img/avatar_7.png',
+                    avatar: './img/avatar_7.jpg',
                     visible: true,
                     messages: [
                         {
@@ -152,7 +152,7 @@ createApp ({
 
                 {
                     name: 'Davide',
-                    avatar: './img/avatar_8.png',
+                    avatar: './img/avatar_8.jpg',
                     visible: true,
                     messages: [
                         {
@@ -173,12 +173,33 @@ createApp ({
                     ],
                 }
             ],
+
+            lastMessage: [],
+        
         }
+
+    },
+  
+    //non fa!
     
-    methods: ,
+    // methods: {
+    //     getLastMessage() {
+    //         for(i = 0; i < this.contacts.length; i++) {
+    //             //all messages
+    //             let messages = this.contacts[i].messages;
+    //             //last message only
+    //             for(j = 0; j < messages.length; j++) {
+    //                 if (j == messages.length - 1) {
+    //                 this.lastMessage.push(messages[j]);
+    //                 }
+    //             }
+    //         }
+    //         console.log("Array", this.lastMessage);
+    //         console.log("First last message", this.lastMessage[0].message);
+    //     },
+    // },
 
     mounted() {
-        console.log(ready);
     }
 
 }).mount("#app")
