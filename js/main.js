@@ -195,24 +195,31 @@ createApp ({
             const filteredList = this.contacts.filter(element => 
                 element.name.toLowerCase().includes(this.search.toLowerCase())
             )
-            this.filteredList = filteredList
         },
     
         selectChat(i) {
             this.chatIndex = i;
         },
 
+        autoReply() {
+            let reply = { 
+                date: 'un secondo fa', //ricava data con newDate
+                message: 'Ok!', 
+                status: 'received'};
+            this.contacts[this.chatIndex].messages.push(reply); //fallo comparire nella stessa chat
+
+        },
+        
         sendMessage() {
-            let newText = { date: '', message: this.myText, status: 'sent'};
+            let newText = { 
+                date: 'un secondo fa', //ricava data con newDate
+                message: this.myText, 
+                status: 'sent'};
             this.contacts[this.chatIndex].messages.push(newText);
             this.myText = '';
             setTimeout(this.autoReply, 1000);
         },
 
-        autoReply() {
-            let reply = { date: '', message: 'Ok!', status: 'received'};
-            this.contacts[this.chatIndex].messages.push(reply);
-        },
     
     },
 

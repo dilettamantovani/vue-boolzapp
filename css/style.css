@@ -50,8 +50,10 @@ li img {
 
 
 /* right */
-#contactInfo { background-color: lightgray; }
-
+#contactInfo {
+    background-color: lightgray;
+    padding: 0.3rem;
+}
 
 
 /* utilities */

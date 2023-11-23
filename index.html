@@ -60,7 +60,7 @@
                             
 
                             <!-- last message -->
-                            <!-- lavora non così ma col contact.messages[index].message, così ripesca l'ultimo messaggio quando ripesca il nome -->
+                            <!-- lavora col contact.messages[index].message, così ripesca l'ultimo messaggio quando ripesca il nome -->
 
 
                         </li>
@@ -76,8 +76,6 @@
                             </div>
                             
 
-                            <!-- last message -->
-                            <!-- lavora non così ma col contact.messages[index].message, così ripesca l'ultimo messaggio quando ripesca il nome -->
 
 
                         </li>
@@ -118,7 +116,7 @@
 
                 <div id="messageBox">
                     <span><i class="fa-regular fa-face-smile"></i></span>
-                    <input type="text" placeholder="Scrivi un messaggio" v-on:keyup.enter="sendMessage" v-model="myText">
+                    <input type="text" placeholder="Scrivi un messaggio" @:keyup.enter="sendMessage" v-model="myText">
                     <button id="sendBtn" @click="sendMessage"><i class="fa-solid fa-paper-plane"></i></button> <!-- @click send message -->
                     <span><i class="fa-solid fa-microphone"></i></span> <!-- @click voice message?? -->
                 </div>
