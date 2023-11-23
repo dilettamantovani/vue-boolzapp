@@ -174,13 +174,13 @@ createApp ({
                 }
             ],
 
-            lastMessage: [],
-
             chatIndex: 0,
 
             search: '', 
 
-           myText: '',
+            myText: '',
+
+            filteredList: '',
         
         }
 

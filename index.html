@@ -49,9 +49,9 @@
 
                 <!-- chat list -->
                 <div id="chatList">
-                    <ul>
+                    <ul v-if="filteredList">
                         <!-- contact generator -->
-                        <li class="d-flex align-center" v-for="contact, i in contacts" @click="selectChat(i)" :class="chatIndex == i ? 'active' : ''">
+                        <li class="d-flex align-center" v-for="contact, i in filteredList" @click="selectChat(i)" :class="chatIndex == i ? 'active' : ''">
                             <img :src="contact.avatar" :alt="contact.name">
                             <div>
                                 <h4>{{contact.name}}</h4>
