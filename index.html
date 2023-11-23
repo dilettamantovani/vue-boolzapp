@@ -65,6 +65,24 @@
 
                         </li>
                     </ul>
+
+                    <ul v-else>
+                        <!-- contact generator -->
+                        <li class="d-flex align-center" v-for="contact, i in contacts" @click="selectChat(i)" :class="chatIndex == i ? 'active' : ''">
+                            <img :src="contact.avatar" :alt="contact.name">
+                            <div>
+                                <h4>{{contact.name}}</h4>
+                                <!-- <span v-if="contact.messsages[0].message">{{contact.messsages[i].message}}</span> -->
+                            </div>
+                            
+
+                            <!-- last message -->
+                            <!-- lavora non così ma col contact.messages[index].message, così ripesca l'ultimo messaggio quando ripesca il nome -->
+
+
+                        </li>
+                    </ul>
+
                 </div>
 
             </div>
@@ -72,7 +90,12 @@
 
             <!-- right -->
             <div id="convContainer" class="d-flex flex-column justify-between">
-                <div id="contactInfo">
+                <div id="contactInfo" class="d-flex align-center">
+                    <img :src="contacts[chatIndex].avatar" :alt="contacts[chatIndex].name">
+                    <div>
+                        <h4>{{contacts[chatIndex].name}}</h4>
+                        <!-- <span>{{contacts[chatIndex].messages[0].date}}</span> -->
+                    </div>
                     <!-- {{contact[0].avatar}}
                     {{contact[0].name}} -->
                     <!-- ultimo accesso -->
