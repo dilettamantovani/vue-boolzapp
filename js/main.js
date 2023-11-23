@@ -186,8 +186,6 @@ createApp ({
 
     },
   
-    //lavora non così ma col contact.messages[index].message, così ripesca l'ultimo messaggio quando ripesca il nome
-
     methods: {
 
         // list filter
@@ -195,6 +193,7 @@ createApp ({
             const filteredList = this.contacts.filter(element => 
                 element.name.toLowerCase().includes(this.search.toLowerCase())
             )
+            this.filteredList = filteredList
         },
     
         selectChat(i) {
@@ -224,12 +223,7 @@ createApp ({
     },
 
     mounted() {
-        //stampiamo array messaggi di una specifica conv in console
 
-        // console.log(this.contacts[0].messages);
-
-
-        // cicliamo sull'array messaggi della conv e poi lo portiamo in html
         this.contacts[0].messages.forEach(message => {
             console.log(message);
 
