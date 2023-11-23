@@ -60,3 +60,6 @@ li img {
 .justify-between {justify-content:space-between}
 .justify-center {justify-content: center}
 .align-center {align-items:center}
+
+.active { background-color: lightgray; }
+.sent { background-color: rgb(62, 218, 62); }

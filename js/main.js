@@ -175,6 +175,12 @@ createApp ({
             ],
 
             lastMessage: [],
+
+            chatIndex: 0,
+
+            search: '', 
+
+           myText: '',
         
         }
 
@@ -182,24 +188,46 @@ createApp ({
   
     //lavora non così ma col contact.messages[index].message, così ripesca l'ultimo messaggio quando ripesca il nome
 
-    // methods: {
-    //     getLastMessage() {
-    //         for(i = 0; i < this.contacts.length; i++) {
-    //             //all messages
-    //             let messages = this.contacts[i].messages;
-    //             //last message only
-    //             for(j = 0; j < messages.length; j++) {
-    //                 if (j == messages.length - 1) {
-    //                 this.lastMessage.push(messages[j]);
-    //                 }
-    //             }
-    //         }
-    //         console.log("Array", this.lastMessage);
-    //         console.log("First last message", this.lastMessage[0].message);
-    //     },
-    // },
+    methods: {
+
+        // list filter
+        filterContacts() {
+            const filteredList = this.contacts.filter(element => 
+                element.name.toLowerCase().includes(this.search.toLowerCase())
+            )
+            this.filteredList = filteredList
+        },
+    
+        selectChat(i) {
+            this.chatIndex = i;
+        },
+
+        sendMessage() {
+            let newText = { date: '', message: this.myText, status: 'sent'};
+            this.contacts[this.chatIndex].messages.push(newText);
+            this.myText = '';
+            setTimeout(this.autoReply, 1000);
+        },
+
+        autoReply() {
+            let reply = { date: '', message: 'Ok!', status: 'received'};
+            this.contacts[this.chatIndex].messages.push(reply);
+        },
+    
+    },
 
     mounted() {
-    }
+        //stampiamo array messaggi di una specifica conv in console
+
+        // console.log(this.contacts[0].messages);
+
+
+        // cicliamo sull'array messaggi della conv e poi lo portiamo in html
+        this.contacts[0].messages.forEach(message => {
+            console.log(message);
+
+        });
+    },
+    
 
 }).mount("#app")
