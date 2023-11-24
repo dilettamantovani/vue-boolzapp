@@ -190,10 +190,18 @@ createApp ({
 
         // list filter
         filterContacts() {
-            const filteredList = this.contacts.filter(element => 
-                element.name.toLowerCase().includes(this.search.toLowerCase())
-            )
-            this.filteredList = filteredList
+            // const filteredList =
+            this.contacts.filter(element => {
+                if(element.name.toLowerCase().includes(this.search.toLowerCase())) {
+                    element.visible = true;
+                }else{
+                    element.visible=false;
+                }
+                console.log(element.visible)
+            });
+            //     element.name.toLowerCase().includes(this.search.toLowerCase())
+            // )
+            // this.filteredList = filteredList
         },
     
         selectChat(i) {
