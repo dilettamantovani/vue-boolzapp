@@ -29,7 +29,9 @@ body {
     background-image: url(../img/mine.jpg);
 }
 
-#user, #contactInfo { padding: 0.3rem; }
+#user { border-right: 0.05rem solid gray; }
+
+#user, #contactInfo { padding: 0.3rem 0.5rem; }
 
 #user img, #contactInfo img, li img {
     width: 2.5rem;
@@ -37,16 +39,53 @@ body {
     margin: 0.3rem;
 }
 
-#userBtns a { padding: 0 0.3rem; }
+#Btns a { padding: 0 0.3rem; }
 
 #notifications, li {
     padding-left: 0.6rem;
-    min-height: ;
+    min-height: 4rem;
+}
+
+.fa-bell-slash {
+    padding: 0.6rem 0.5rem 0.5rem;
+    border-radius: 50%;
+    aspect-ratio: 1;
 }
 
 #notificationsText { padding-left: 0.5rem; }
 
+#notificationsText a, li span { font-size: small; }
+
+#searchBar {
+    margin: 0.3rem;
+    width: 100%;
+    border-radius: 4px;
+    border: 0.05rem solid gray;
+}
+
+#searchBar input {
+    padding: 0.5em;
+    border: none;
+    width: 90%;
+    background-color: white;
+}
+
+#searchBtn {
+    background-color: white;
+    padding: 0.27em;
+    border: none;
+    margin-left: 0.5em;
+    width: 8%;
+}
+
+#chatList { overflow-y: auto; }
+
 li { list-style-type: none; }
+
+#lastMsgPreview { 
+    font-size: 0.5rem; 
+    margin: 0.2rem 0.2rem 0 0;
+}
 
 .msgBubble {
     min-width: auto;
@@ -58,9 +97,7 @@ li { list-style-type: none; }
 
 .msgBubble span { font-size: 0.6rem; }
 
-#inputBox {
-    min-height: auto
-;}
+#inputBox, #searchBar { min-height: auto;}
 
 #inputBox input {
     padding: 0.6rem;
@@ -73,7 +110,6 @@ li { list-style-type: none; }
 #inputBox button { border: none; }
 
 
-
 /* utilities */
 .d-flex { display: flex; } 
 .flex-column { flex-direction: column; }
@@ -81,7 +117,9 @@ li { list-style-type: none; }
 .justify-center {justify-content: center}
 .justify-end {justify-content: flex-end;}
 .justify-around {justify-content: space-around;}
+.justify-start {justify-content: flex-start}
 .align-center {align-items:center}
+.align-self-start { align-self: flex-start; }
 
 .d-none { display: none; }
 .d-grid { display: grid; }
@@ -90,5 +128,8 @@ li { list-style-type: none; }
 .received { background-color: rgb(243, 239, 239); }
 
 .bg-header { background-color: #EAEAEA; }
+.bg-blue { background-color: #8EDAFC; }
+.bg-white { background-color: white; }
+.blue { color: #8EDAFC; }
 .gray { color: gray; }
 

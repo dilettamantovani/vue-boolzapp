@@ -24,7 +24,7 @@
                         <h4>Diletta</h4>
                     </div>
 
-                    <div id="userBtns" class="d-flex justify-between">
+                    <div id="Btns" class="d-flex justify-between">
                         <a href="#"><i class="fa-solid fa-circle-notch gray"></i></a>
                         <a href="#"><i class="fa-solid fa-message gray"></i></a>
                         <a href="#"><i class="fa-solid fa-ellipsis-vertical gray"></i></a>
@@ -33,8 +33,8 @@
                 </div>
 
                 <!-- notifications banner -->
-                <div id="notifications" class="d-flex align-center">
-                    <i class="fa-solid fa-bell-slash gray"></i>
+                <div id="notifications" class="d-flex align-center bg-blue">
+                    <i class="fa-solid fa-bell-slash blue bg-white"></i>
                     <div id="notificationsText" class="d-flex flex-column">
                         <span>Ricevi notifiche di nuovi messaggi</span>
                         <a href="#" class="gray">Attiva notifiche desktop</a>
@@ -42,9 +42,9 @@
                 </div>
 
                 <!-- search bar -->
-                <div id="searchBar"n class="bg-header">
-                    <div>
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                <div class="d-flex align-center justify-center bg-header">
+                    <div id="searchBar" class="bg-white">
+                        <button id="searchBtn"><i class="fa-solid fa-magnifying-glass gray"></i></button>
                         <input type="text" id="search" placeholder="Cerca o inizia una nuova chat" @keyup="filterContacts()" v-model="search">
                     </div>
                 </div>
@@ -53,13 +53,17 @@
                 <div id="chatList">
                     <ul>
                         <!-- contact generator -->
-                        <li class="d-flex align-center" v-for="contact, i in contacts" @click="selectChat(i)" :class="{active: chatIndex == i}" v-show="contact.visible">
-                            <img :src="contact.avatar" :alt="contact.name">
-                            <div>
-                                <h4>{{contact.name}}</h4>
-                                <span v-if="contact.messages.length">{{contact.messages[(contact.messages.length) - 1].message}}</span>
+                        <li class="d-flex align-center justify-between" v-for="contact, i in contacts" @click="selectChat(i)" :class="{active: chatIndex == i}" v-show="contact.visible">
+                            <div class="d-flex align-center">
+                                <img :src="contact.avatar" :alt="contact.name">
+                                <div>
+                                    <h4>{{contact.name}}</h4>
+                                    <span v-if="contact.messages.length">{{contact.messages[(contact.messages.length) - 1].message}}</span>
+                                </div>
                             </div>
-                            <span v-if="contact.messages.length">{{contact.messages[(contact.messages.length) - 1].date}} alle {{contact.messages[(contact.messages.length) - 1].time}}</span>
+                            <div class="d-flex justify-end align-self-start">
+                                <span id="lastMsgPreview" class="gray"  v-if="contact.messages.length">{{contact.messages[(contact.messages.length) - 1].date}} alle <br> {{contact.messages[(contact.messages.length) - 1].time}}</span>
+                            </div>
                         </li>
                     </ul>
 
@@ -70,13 +74,20 @@
 
             <!-- main window -->
             <div id="convContainer" class="d-flex flex-column justify-between">
-                <div id="contactInfo" class="d-flex align-center bg-header">
-                    <img :src="contacts[chatIndex].avatar" :alt="contacts[chatIndex].name">
-                    <div>
-                        <h4>{{contacts[chatIndex].name}}</h4>
-                        <!-- <span v-if="contact.messages.length">Ultimo accesso: il {{contacts[chatIndex].messages[(contact.messages.length) - 1].date}} alle {{contacts[chatIndex].messages[(contact.messages.length) - 1].time}}</span> -->
+                <div id="contactInfo" class="d-flex align-center justify-between bg-header">
+                    <div class="d-flex align-center">
+                        <img :src="contacts[chatIndex].avatar" :alt="contacts[chatIndex].name">
+                        <div>
+                            <h4>{{contacts[chatIndex].name}}</h4>
+                            <!-- <span>Ultimo accesso: il {{contacts[chatIndex].messages[(contact.messages.length) - 1].date}} alle {{contacts[chatIndex].messages[(contact.messages.length) - 1].time}}</span> -->
+                            <span>Ultimo accesso il dd/mm/aaaa</span>
+                        </div>
                     </div>
-                    <!-- aggiungi icone -->
+                    <div id="Btns" class="d-flex justify-between">
+                        <a href="#"><i class="fa-solid fa-magnifying-glass fa-lg gray"></i></a>
+                        <a href="#"><i class="fa-solid fa-paperclip fa-lg gray"></i></a>
+                        <a href="#"><i class="fa-solid fa-ellipsis-vertical fa-lg gray"></i></a>
+                    </div>
                 </div>
 
                 <div id="convo">
@@ -91,7 +102,7 @@
                 <div id="inputBox" class="d-flex align-center justify-around bg-header">
                     <span><i class="fa-regular fa-face-smile gray"></i></span>
                     <input type="text" placeholder="Scrivi un messaggio" v-on:keyup.enter="sendMessage" v-model="myText">
-                    <button id="sendBtn" @click="sendMessage"><i class="fa-solid fa-paper-plane gray"></i></button> <!-- @click send message -->
+                    <button id="sendBtn" @click="sendMessage"><i class="fa-solid fa-paper-plane gray"></i></button> 
                     <span><i class="fa-solid fa-microphone gray"></i></span> <!-- @click voice message?? -->
                 </div>
             </div>
