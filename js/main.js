@@ -226,18 +226,27 @@ createApp ({
             this.chatIndex = i;
         },
 
+        // getNow() {
+        // //DA CAPIRE COME INSERIRLA DURANTE IL WEEKEND
+        //     let today = new Date();
+        //     let date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+        //     let time = today.getHours() + ":" + today.getMinutes();
+        //     let dateTime = date +' alle '+ time;
+        //     this.timestamp = dateTime;
+        // },
+
         autoReply() {
             let reply = { 
                 date: 'un secondo fa', //ricava data con newDate
                 message: 'Ok!', 
                 status: 'received'};
             this.contacts[this.chatIndex].messages.push(reply); //fallo comparire nella stessa chat
-
         },
         
         sendMessage() {
             let newText = { 
-                date: 'un secondo fa', //ricava data con newDate
+                date: 'un secondo fa',
+                // this.timestamp, //ricava data con newDate
                 message: this.myText, 
                 status: 'sent'};
             this.contacts[this.chatIndex].messages.push(newText);
@@ -245,14 +254,7 @@ createApp ({
             setTimeout(this.autoReply, 1000);
         },
 
-        //DA CAPIRE COME INSERIRLA DURANTE IL WEEKEND
-        // getNow: function() {
-        //     const today = new Date();
-        //     const date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
-        //     const time = today.getHours() + ":" + today.getMinutes();
-        //     const dateTime = date +' alle '+ time;
-        //     this.timestamp = dateTime;
-        // }
+    
     },
     
     mounted() {
