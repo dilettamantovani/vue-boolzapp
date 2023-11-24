@@ -78,7 +78,7 @@ body {
     width: 8%;
 }
 
-#chatList { overflow-y: auto; }
+#chatList, #convo { overflow-y: auto; }
 
 li { list-style-type: none; }
 
