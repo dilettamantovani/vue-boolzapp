@@ -79,8 +79,7 @@
                         <img :src="contacts[chatIndex].avatar" :alt="contacts[chatIndex].name">
                         <div>
                             <h4>{{contacts[chatIndex].name}}</h4>
-                            <!-- <span>Ultimo accesso: il {{contacts[chatIndex].messages[(contact.messages.length) - 1].date}} alle {{contacts[chatIndex].messages[(contact.messages.length) - 1].time}}</span> -->
-                            <span>Ultimo accesso il dd/mm/aaaa</span>
+                            <span>Ultimo accesso: il {{contacts[chatIndex].messages[contacts[chatIndex].messages.length - 1].date}} alle {{contacts[chatIndex].messages[contacts[chatIndex].messages.length - 1].time}}</span>
                         </div>
                     </div>
                     <div id="Btns" class="d-flex justify-between">
@@ -91,7 +90,7 @@
                 </div>
 
                 <div id="convo">
-                    <div v-for="message in contacts[chatIndex].messages" class="d-flex" :class="message.status == 'sent' ? 'justify-end' : '' "> <!-- :class="message.status == 'sent' ? 'justify-end' : '' " -->
+                    <div v-for="message in contacts[chatIndex].messages" class="d-flex" :class="message.status == 'sent' ? 'justify-end' : '' ">
                         <div class="msgBubble" :class="[message.status]">
                             {{message.message}}
                             <span>{{message.date}} alle {{message.time}}</span>
