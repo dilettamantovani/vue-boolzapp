@@ -14,33 +14,35 @@
     <!-- NO BOOTSTRAP VERSION -->
     <body>
         <div id="app" class="d-flex">
-            <!-- left -->
+
+            <!-- sidebar -->
             <div id="chatContainer" class="d-flex flex-column">
-                <div id="user" class="d-flex align-center justify-between">
+                <div id="user" class="d-flex align-center justify-between bg-header">
 
-                    <img src="https://placehold.co/10" alt="">
-                    <h4>Diletta</h4>
+                    <div id="userInfo" class="d-flex align-center">
+                        <img src="https://img.fruugo.com/product/5/51/879155515_max.jpg" alt="User Profile Pic">
+                        <h4>Diletta</h4>
+                    </div>
 
-                    <div id="userBtns">
-                        <!-- still need style -->
-                        <a href="#"><i class="fa-solid fa-circle-notch"></i></a>
-                        <a href="#"><i class="fa-solid fa-message"></i></a>
-                        <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                    <div id="userBtns" class="d-flex justify-between">
+                        <a href="#"><i class="fa-solid fa-circle-notch gray"></i></a>
+                        <a href="#"><i class="fa-solid fa-message gray"></i></a>
+                        <a href="#"><i class="fa-solid fa-ellipsis-vertical gray"></i></a>
                     </div>
 
                 </div>
 
                 <!-- notifications banner -->
-                <div class="d-flex align-center"> <!-- needs background -->
-                    <i class="fa-solid fa-bell-slash"></i>   <!-- needs style -->
-                    <div class="d-flex flex-column">
+                <div id="notifications" class="d-flex align-center">
+                    <i class="fa-solid fa-bell-slash gray"></i>
+                    <div id="notificationsText" class="d-flex flex-column">
                         <span>Ricevi notifiche di nuovi messaggi</span>
-                        <a href="#">Attiva notifiche desktop</a>
+                        <a href="#" class="gray">Attiva notifiche desktop</a>
                     </div>
                 </div>
 
                 <!-- search bar -->
-                <div id="searchBar">
+                <div id="searchBar"n class="bg-header">
                     <div>
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" id="search" placeholder="Cerca o inizia una nuova chat" @keyup="filterContacts()" v-model="search">
@@ -55,13 +57,9 @@
                             <img :src="contact.avatar" :alt="contact.name">
                             <div>
                                 <h4>{{contact.name}}</h4>
-                                <!-- <span v-if="contact.messsages[0].message">{{contact.messsages[i].message}}</span> -->
+                                <span v-if="contact.messages.length">{{contact.messages[(contact.messages.length) - 1].message}}</span>
                             </div>
-                            
-
-                            <!-- last message -->
-                            <!-- lavora non così ma col contact.messages[index].message, così ripesca l'ultimo messaggio quando ripesca il nome -->
-
+                            <span v-if="contact.messages.length">{{contact.messages[(contact.messages.length) - 1].date}} alle {{contact.messages[(contact.messages.length) - 1].time}}</span>
                         </li>
                     </ul>
 
@@ -70,39 +68,31 @@
             </div>
 
 
-            <!-- right -->
+            <!-- main window -->
             <div id="convContainer" class="d-flex flex-column justify-between">
-                <div id="contactInfo" class="d-flex align-center">
+                <div id="contactInfo" class="d-flex align-center bg-header">
                     <img :src="contacts[chatIndex].avatar" :alt="contacts[chatIndex].name">
                     <div>
                         <h4>{{contacts[chatIndex].name}}</h4>
-                        <!-- <span>{{contacts[chatIndex].messages[0].date}}</span> -->
+                        <!-- <span v-if="contact.messages.length">Ultimo accesso: il {{contacts[chatIndex].messages[(contact.messages.length) - 1].date}} alle {{contacts[chatIndex].messages[(contact.messages.length) - 1].time}}</span> -->
                     </div>
-                    <!-- {{contact[0].avatar}}
-                    {{contact[0].name}} -->
-                    <!-- ultimo accesso -->
+                    <!-- aggiungi icone -->
                 </div>
 
                 <div id="convo">
-                    <!-- w/ flex: sent = justify-end, green; received = grey. w/ Bootstrap: offset?  -->
-                    
-                    <!-- c'è da modificare un attimo la visualizzazione della chat. però funziona al click --> 
-                    <ul>
-                    
-                        <li v-for="message in contacts[chatIndex].messages"> <!-- :class="message.status == 'sent' ? 'justify-end' : '' " -->
-                            <div>
-                                {{message.message}}
-                                <span>{{message.date}}</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <div v-for="message in contacts[chatIndex].messages" class="d-flex" :class="message.status == 'sent' ? 'justify-end' : '' "> <!-- :class="message.status == 'sent' ? 'justify-end' : '' " -->
+                        <div class="msgBubble" :class="[message.status]">
+                            {{message.message}}
+                            <span>{{message.date}} alle {{message.time}}</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div id="messageBox">
-                    <span><i class="fa-regular fa-face-smile"></i></span>
+                <div id="inputBox" class="d-flex align-center justify-around bg-header">
+                    <span><i class="fa-regular fa-face-smile gray"></i></span>
                     <input type="text" placeholder="Scrivi un messaggio" v-on:keyup.enter="sendMessage" v-model="myText">
-                    <button id="sendBtn" @click="sendMessage"><i class="fa-solid fa-paper-plane"></i></button> <!-- @click send message -->
-                    <span><i class="fa-solid fa-microphone"></i></span> <!-- @click voice message?? -->
+                    <button id="sendBtn" @click="sendMessage"><i class="fa-solid fa-paper-plane gray"></i></button> <!-- @click send message -->
+                    <span><i class="fa-solid fa-microphone gray"></i></span> <!-- @click voice message?? -->
                 </div>
             </div>
 

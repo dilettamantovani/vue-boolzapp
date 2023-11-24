@@ -29,40 +29,66 @@ body {
     background-image: url(../img/mine.jpg);
 }
 
+#user, #contactInfo { padding: 0.3rem; }
 
-/* left */
-#user {
-    background-color: lightgray;
-    padding: 0.3rem;
-}
-
-#user img, #contactInfo img {
+#user img, #contactInfo img, li img {
     width: 2.5rem;
     border-radius: 50%;
+    margin: 0.3rem;
 }
+
+#userBtns a { padding: 0 0.3rem; }
+
+#notifications, li {
+    padding-left: 0.6rem;
+    min-height: ;
+}
+
+#notificationsText { padding-left: 0.5rem; }
 
 li { list-style-type: none; }
 
-li img {
-    width: 3rem;
-    border-radius: 50%;
+.msgBubble {
+    min-width: auto;
+    min-height: auto;
+    border-radius: 8px;
+    padding: 0.4rem;
+    margin: 0.3rem 1rem;
 }
 
+.msgBubble span { font-size: 0.6rem; }
 
-/* right */
-#contactInfo {
-    background-color: lightgray;
-    padding: 0.3rem;
+#inputBox {
+    min-height: auto
+;}
+
+#inputBox input {
+    padding: 0.6rem;
+    width: 80%;
+    margin: 0.3rem;
+    border-radius: 4px;
+    border: 0.05rem solid gray;
 }
+
+#inputBox button { border: none; }
+
 
 
 /* utilities */
-.d-flex { display: flex; }
+.d-flex { display: flex; } 
 .flex-column { flex-direction: column; }
 .justify-between {justify-content:space-between}
 .justify-center {justify-content: center}
+.justify-end {justify-content: flex-end;}
+.justify-around {justify-content: space-around;}
 .align-center {align-items:center}
 
-.active { background-color: lightgray; }
+.d-none { display: none; }
+.d-grid { display: grid; }
+.active { background-color: #dadcdc; }
 .sent { background-color: rgb(62, 218, 62); }
-.invisible { display: none; }
+.received { background-color: rgb(243, 239, 239); }
+
+.bg-header { background-color: #EAEAEA; }
+.gray { color: gray; }
+
